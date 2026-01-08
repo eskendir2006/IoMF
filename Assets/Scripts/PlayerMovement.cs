@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;      
     }
 
     public void OnLook(InputAction.CallbackContext context)
