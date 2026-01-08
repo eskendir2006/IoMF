@@ -10,15 +10,26 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private Vector2 moveInput;
 
+    public float mouseSensitivity = 0.1f;
+    public Transform playerBody;
+
+    float xRotation = 0f;
+    float yRotation = 0f;
+    Vector2 lookInput;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
     }
 
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        lookInput = context.ReadValue<Vector2>();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        Debug.Log("Move input: " + moveInput);
     }
 
     void Update()
@@ -31,5 +42,15 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        float mouseX = lookInput.x * mouseSensitivity;
+        float mouseY = lookInput.y * mouseSensitivity;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        yRotation += mouseX;
+
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 }
