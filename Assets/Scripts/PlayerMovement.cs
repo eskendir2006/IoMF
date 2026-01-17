@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
 
     private CharacterController controller;
+    [SerializeField] private Camera charCamera;
     private Vector3 velocity;
     private Vector2 moveInput;
 
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Movement
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * speed * Time.deltaTime);
 
@@ -44,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        // Look
         float mouseX = lookInput.x * mouseSensitivity;
         float mouseY = lookInput.y * mouseSensitivity;
 
