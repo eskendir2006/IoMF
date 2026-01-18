@@ -4,7 +4,7 @@ interface IInteractable
     public void Interact();
 }
 
-public class Interactor : MonoBehaviour
+public class InteractComponent : MonoBehaviour
 {
     [SerializeField] private Transform interactorSource;
     [SerializeField] private float interactorRange;
@@ -16,6 +16,7 @@ public class Interactor : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
+                Debug.Log("Ray succesfully hit on: " + interactObj);
                 interactObj.Interact();
             }
         }

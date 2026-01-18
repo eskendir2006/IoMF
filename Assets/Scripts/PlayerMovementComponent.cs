@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementComponent : MonoBehaviour
 {
     public float speed = 5f;
     public float gravity = -9.81f;
