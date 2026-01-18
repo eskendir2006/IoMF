@@ -1,10 +1,11 @@
 {
   "dependencies": {
     "com.prenominal.realtimecsg": {
-      "version": "file:RealtimeCSG",
+      "version": "https://github.com/LogicalError/realtime-CSG-for-unity.git",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "4aaf0bcb5ac02b7dd4ec1bf842a9b3fe8f9d8cdb"
     },
     "com.unity.ai.assistant": {
       "version": "1.0.0-pre.12",
