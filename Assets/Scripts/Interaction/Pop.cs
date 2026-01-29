@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Pop : MonoBehaviour, IInteractable
@@ -6,5 +7,9 @@ public class Pop : MonoBehaviour, IInteractable
     {
         Debug.Log("Interacted");
         Destroy(gameObject);
+    }
+    public void Interact(InteractComponent interactor)
+    {
+        
     }
 }

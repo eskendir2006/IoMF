@@ -7,6 +7,10 @@ public class Door : MonoBehaviour, IInteractable
     {
         StartCoroutine(RotateDoor(openAngle));
     }
+    public void Interact(InteractComponent interactor)
+    {
+        
+    }
 
     public float openAngle = 90f; // Angle to open the door (e.g., 90 degrees)
     public float closeAngle = 0f; // Original angle (closed)
