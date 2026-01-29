@@ -4,36 +4,14 @@ on:
   push:
     branches:
       - main
-      - master
-      - develop
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Notify the commit on Telegram
+        uses: EverythingSuckz/github-telegram-notify@main
         with:
-          fetch-depth: 0
-
-      - name: Get Commit Count
-        id: vars
-        run: |
-          COUNT=$(git rev-list --count HEAD)
-          echo "commit_count=$COUNT" >> $GITHUB_OUTPUT
-          echo "short_sha=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
-
-      - name: Send Telegram notification
-        uses: appleboy/telegram-action@v1.0.0
-        with:
-          to: ${{ secrets.TELEGRAM_CHAT_ID }}
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          format: html
-          message: |
-            ${{ github.event.forced == true && 
-              format('🔴 <b>[{0}]</b> Branch <code>{1}</code> was <b>force-pushed</b> to <code>{2}</code>', github.event.repository.name, github.ref_name, steps.vars.outputs.short_sha) 
-              || 
-              format('🔵 <b>[{0}:{1}]</b> {2} new commit(s)
-              <code>{3}</code> {4} - {5}', github.event.repository.name, github.ref_name, github.event.commits && github.event.commits.length || 1, steps.vars.outputs.short_sha, github.event.head_commit.message, github.event.head_commit.author.name) 
-            }}
-            <a href="${{ github.event.compare }}">Compare changes</a>
+          bot_token: '${{ secrets.TELEGRAM_TOKEN }}'
+          chat_id: '${{ secrets.TELEGRAM_CHAT_ID }}'
+          topic_id: 32
