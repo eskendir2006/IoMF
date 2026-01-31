@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "ItsOnMyFarm.slnx"
+    "dotnet.defaultSolution": "IoMF.slnx"
 }
