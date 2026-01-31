@@ -50,6 +50,22 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-6254591519082951773
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ChromaticAberration
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.112
 --- !u!114 &-4922609626661009205
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -62,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfbdbb87d3286943a057f7791b43141, type: 3}
   m_Name: ChannelMixer
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.ChannelMixer
-  active: 1
+  active: 0
   redOutRedIn:
     m_OverrideState: 1
     m_Value: 121
@@ -111,10 +127,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.501
+    m_Value: 0.316
   smoothness:
-    m_OverrideState: 0
-    m_Value: 0.2
+    m_OverrideState: 1
+    m_Value: 0.457
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -138,6 +154,8 @@ MonoBehaviour:
   - {fileID: 6498108009484537189}
   - {fileID: -4922609626661009205}
   - {fileID: 2196421374854011864}
+  - {fileID: -6254591519082951773}
+  - {fileID: 8575901156490852511}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -224,7 +242,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.573
+    m_Value: 1
   response:
     m_OverrideState: 0
     m_Value: 0.8
@@ -256,3 +274,31 @@ MonoBehaviour:
   clamp:
     m_OverrideState: 0
     m_Value: 0.05
+--- !u!114 &8575901156490852511
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
+  m_Name: LensDistortion
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.LensDistortion
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.02
+  xMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+  yMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+  center:
+    m_OverrideState: 0
+    m_Value: {x: 0.5, y: 0.5}
+  scale:
+    m_OverrideState: 0
+    m_Value: 1
